@@ -47,9 +47,10 @@ int main()
                 free(array);
                 array = NULL;
             }
-            system("clear");
+            printf("\e[1;1H\e[2J");
             puts("Press enter to exit");
-            fflush(stdin);
+            while ((getchar()) != '\n')
+                ;
             getchar();
             break;
         }
