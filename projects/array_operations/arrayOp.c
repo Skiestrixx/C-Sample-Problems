@@ -229,9 +229,9 @@ void insertAtPosition(int **array, int *size)
     }
     for (int i = *size - 1; i >= position; i--)
     {
-        *array[i + 1] = *array[i];
+        (*array)[i + 1] = (*array)[i];
     }
-    *array[position] = value;
+    (*array)[position] = value;
 }
 
 void insertFirst(int **array, int *size)
@@ -273,9 +273,9 @@ void insertFirst(int **array, int *size)
     }
     for (int i = *size - 1; i >= 0; i--)
     {
-        *array[i + 1] = *array[i];
+        (*array)[i + 1] = (*array)[i];
     }
-    *array[0] = value;
+    (*array)[0] = value;
 }
 
 void removeAtPosition(int **array, int *size)
@@ -310,10 +310,6 @@ void removeAtPosition(int **array, int *size)
         *array = temp;
         temp = NULL;
     }
-    if (*size - 1 == 1)
-    {
-        printf("Position to remove (0): ");
-    }
     printf("Position to remove (0-%d): ", *size);
     if (scanf("%d", &position) != 1)
     {
@@ -324,7 +320,7 @@ void removeAtPosition(int **array, int *size)
         return;
     }
 
-    if (position > *size - 1)
+    if (position > *size)
     {
         printError(6);
         *size += 1;
@@ -334,7 +330,7 @@ void removeAtPosition(int **array, int *size)
     }
     for (int i = position; i < *size; i++)
     {
-        *array[i] = *array[i + 1];
+        (*array)[i] = (*array)[i + 1];
     }
 }
 
@@ -373,7 +369,7 @@ void removeFirst(int **array, int *size)
 
     for (int i = 0; i < *size; i++)
     {
-        *array[i] = *array[i + 1];
+        (*array)[i] = (*array)[i + 1];
     }
 }
 
@@ -424,7 +420,7 @@ void sortDescending(int *array, int *size)
 {
     for (int i = *size; i > 1; i--)
     {
-        for (int j = 0; j < *size + 1; j++)
+        for (int j = 0; j < *size - 1; j++)
         {
             if (array[j + 1] > array[j])
             {
