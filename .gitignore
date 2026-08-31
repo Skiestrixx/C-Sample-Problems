@@ -60,3 +60,5 @@ projects/array_operations/arrayOp
 projects/array_operations/main
 projects/airline_ticketing/main
 projects/airline_ticketing/airlineTicket
+/.idea/
+/CMakeLists.txt
