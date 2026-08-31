@@ -1,7 +1,3 @@
-//
-// Created by jaybee on 8/31/26.
-//
-
 #ifndef C_SAMPLE_PROBLEMS_AIRLINES_H
 #define C_SAMPLE_PROBLEMS_AIRLINES_H
 
@@ -16,4 +12,4 @@ void boardPass(int seat);
 void exxit(void);
 
 
-#endif //C_SAMPLE_PROBLEMS_AIRLINES_H
+#endif

@@ -5,7 +5,6 @@
 #include <windows.h>
 #endif
 
-
 void initSeats(int *seats, int size){
     int i;
     for(i=0;i<size;i++){
