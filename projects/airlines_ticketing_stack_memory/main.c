@@ -3,15 +3,15 @@
 #include<ctype.h>
 
 int main(void) {
-    int seats[SIZE],seatType, totalEconomy=0,totalFirstClass=0;
-    initSeats(seats,SIZE);
+    int seats[TOTALSEATS],seatType, totalEconomy=0,totalFirstClass=0;
+    initSeats(seats,TOTALSEATS);
     puts("Welcome to MGM Airlines!");
     do{
-        if (totalEconomy== SIZE/2 && totalFirstClass == SIZE/2) {
+        if (totalEconomy== TOTALSEATS/2 && totalFirstClass == TOTALSEATS/2) {
             printf("\nAirplane is full\n");
             break;
         }
-        displaySeats(seats,SIZE);
+        displaySeats(seats,TOTALSEATS);
         printf("\nPlease type 1 for \"first class\"\nPlease type 2 for \"economy\" :");
         scanf("%d",&seatType);
         if (seatType!=1 && seatType!=2) {
@@ -19,7 +19,7 @@ int main(void) {
         }
         int seatAssignment = assignSeat(seats, seatType);
         if (seatAssignment != -1) {
-            if (seatAssignment <SIZE/2) {
+            if (seatAssignment <TOTALSEATS/2) {
                 totalFirstClass++;
             }else {
                 totalEconomy++;
@@ -27,13 +27,13 @@ int main(void) {
             boardPass(seatAssignment);
         }else {
             if (seatType==1) {
-                if (totalEconomy<SIZE/2) {
+                if (totalEconomy<TOTALSEATS/2) {
                     printf("First class is full would you like to transfer to economy class?(y/n): ");
                     char userReply;
                     scanf(" %c",&userReply);
                     userReply = tolower(userReply);
                     if (userReply=='y') {
-                        seatAssignment = assignEconomy(seats,SIZE);
+                        seatAssignment = assignEconomy(seats,TOTALSEATS);
                         totalEconomy++;
                         boardPass(seatAssignment);
 
@@ -43,13 +43,13 @@ int main(void) {
                 }
             }
             else if (seatType==2) {
-                if (totalFirstClass < SIZE/2){
+                if (totalFirstClass < TOTALSEATS/2){
                     printf("\nEconomy class is full would you like to transfer to First class?(y/n): ");
                     char userReply;
                     scanf(" %c", &userReply);
                     userReply = tolower(userReply);
                     if (userReply == 'y') {
-                        seatAssignment = assignFirstClass(seats,SIZE);
+                        seatAssignment = assignFirstClass(seats,TOTALSEATS);
                         totalFirstClass++;
                         boardPass(seatAssignment);
                     } else {

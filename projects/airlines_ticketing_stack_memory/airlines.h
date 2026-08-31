@@ -5,7 +5,7 @@
 #ifndef C_SAMPLE_PROBLEMS_AIRLINES_H
 #define C_SAMPLE_PROBLEMS_AIRLINES_H
 
-#define SIZE 10
+#define TOTALSEATS 10
 
 void initSeats(int *seats, int size);
 void displaySeats(int *seats, int size);

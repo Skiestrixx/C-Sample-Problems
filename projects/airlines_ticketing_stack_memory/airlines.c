@@ -1,5 +1,10 @@
 #include<stdio.h>
-#include<airlines.h>
+#include"airlines.h"
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 
 void initSeats(int *seats, int size){
     int i;
@@ -44,17 +49,20 @@ int assignEconomy(int *seats, int size){
 
 int assignSeat(int *st, int seatType){
     if (seatType==1){
-        return assignFirstClass(st,SIZE);
+        return assignFirstClass(st,TOTALSEATS);
     }else if(seatType==2){
-        return assignEconomy(st,SIZE);
+        return assignEconomy(st,TOTALSEATS);
     }
     return -1;
 }
 
 void boardPass(int seat){
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);
+#endif
     printf("\n┌──────────────────────────────────────┐\n");
     printf("│                                      │\n");
-    printf("│           BOARDING PASS              │\n");
+    printf("│  BOARDING PASS                       │\n");
     if (seat >= 0 && seat < 5) {
         printf("│  First Class Section                 │\n");
     } else {
